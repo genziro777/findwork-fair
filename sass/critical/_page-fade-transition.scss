@@ -1,0 +1,24 @@
+@use "setting" as *;
+
+// ①html=bodyにfadeoutをつけるだけ //
+// ②cssは下記 //
+// ③jsはpage-fade-transitionを実装で完成 //
+
+body {
+    &::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff; // 背景カラー */
+        z-index: 9999; // ローディングの下にすること */
+        pointer-events: none; // 他の要素にアクセス可能にするためにポインターイベントは無効に */
+        opacity: 0; // 初期値 : 透過状態 */
+        transition: opacity 0.4s ease; // アニメーション時間は 0.8秒 */
+    }
+}
+body.js-fadeout::after {
+    opacity: 1;
+}

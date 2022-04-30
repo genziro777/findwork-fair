@@ -1,0 +1,20 @@
+// 読み込み順は下記に記述した順番となる(sassGlob)
+//あとはそのフォルダ内でのアルファベット順に読み込まれる？はず
+
+@use "setting/index";
+
+@use "base/*";
+
+@use "layout/*";
+
+@use "modules/*";
+
+@use "components/*";
+
+@use "pages/*";
+
+@use "movement/*";
+
+@use "external/*";
+
+@use "hack/*";

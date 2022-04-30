@@ -1,0 +1,480 @@
+@use "variables" as *;
+
+//============ 待機コード 使う場合はmixinへ移動===============*/
+
+//============ オーバーレイ（z-indexを変数で入れても良いかも）使い場所：imgでも良いし、imgのwrap要素でも良い ===============*/
+
+@mixin overlay($bgc: #000, $opacity: 0.5) {
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: $bgc;
+        opacity: $opacity;
+    }
+}
+
+//============ オーバーレイ（擬似要素を未使用のパターン） ===============*/
+//============ 使い方：<div class="overlay-txt">オーバーレイテキスト</div>などのところに使用する ===============*/
+
+@mixin overlay-txt {
+    padding: 6em 1em;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("http://placehold.jp/1400x500.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+//============ ボタン内の矢印（afterの中身） ===============*/
+
+@mixin arrow($bdSize: 0.17em, $size: 0.8em, $right: 1.5em) {
+    &::after {
+        content: "";
+        width: $size;
+        height: $size;
+        border: 0px;
+        border-top: solid $bdSize currentColor;
+        border-right: solid $bdSize currentColor;
+        position: absolute;
+        top: 50%;
+        right: $right;
+        transform: translateY(-50%) rotate(45deg);
+    }
+}
+//============ 擬似要素でボーダーを作る（親にpos:reを忘れずに） ===============*/
+
+@mixin bd-t($w: 100%, $h: 0.1em, $t: 0, $l: 0) {
+    &::before {
+        content: "";
+        display: block;
+        width: $w;
+        height: $h;
+        background-color: #000;
+        position: absolute;
+        top: $t;
+        left: $l;
+    }
+}
+@mixin bd-r($w: 0.1em, $h: 100%, $t: 0, $r: 0) {
+    &::after {
+        content: "";
+        display: inline-block;
+        width: $w;
+        height: $h;
+        background-color: #000;
+        position: absolute;
+        top: $t;
+        right: $r;
+    }
+}
+@mixin bd-b($w: 100%, $h: 0.1em, $b: 0, $l: 0) {
+    &::after {
+        content: "";
+        display: block;
+        width: $w;
+        height: $h;
+        background-color: #000;
+        position: absolute;
+        bottom: $b;
+        left: $l;
+    }
+}
+
+@mixin bd-l($w: 0.1em, $h: 100%, $t: 0, $l: 0) {
+    &::before {
+        content: "";
+        display: inline-block;
+        width: $w;
+        height: $h;
+        background-color: #000;
+        position: absolute;
+        top: $t;
+        left: $l;
+    }
+}
+//============ 三角形 フォントに関わってるならpxじゃなくemで指定した方がええかも ===============*/
+
+@mixin triangle($direction: right, $width: 20px, $height: 20px, $color: #000) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    $valWidth: calc($width / 2);
+    $valHeight: calc($height / 2);
+    @if ($direction == top) {
+        border-width: 0 $valWidth $height $valWidth;
+        border-color: transparent transparent $color transparent;
+    } @else if ($direction == left) {
+        border-width: $valHeight $width $valHeight 0;
+        border-color: transparent $color transparent transparent;
+    } @else if ($direction == right) {
+        border-width: $valHeight 0 $valHeight $width;
+        border-color: transparent transparent transparent $color;
+    } @else if ($direction == bottom) {
+        border-width: $height $valWidth 0 $valWidth;
+        border-color: $color transparent transparent transparent;
+    }
+}
+//============ ホバー:下線スライド ===============*/
+
+@mixin hover-bb($height: 3px) {
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: $height;
+        background: #fff;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform 0.3s;
+    }
+}
+//============ ホバー：左から右へ抜ける ===============*/
+
+@mixin hover-slideLR {
+    &::before {
+        position: absolute; //aタグにpos:relativeを忘れずに
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // z-index: z(back);
+        content: "";
+        background: #fff;
+        transform-origin: right top;
+        transform: scale(0, 1);
+        transition: transform 0.2s;
+    }
+    &:hover::before,
+    &:focus::before {
+        transform-origin: left top;
+        transform: scale(1, 1);
+    }
+    &:hover {
+        color: #e25c00;
+    }
+}
+//============ ホバー：下から上へ抜ける ===============*/
+
+@mixin hover-slideBT {
+    &::before {
+        position: absolute; //aタグにpos:relativeを忘れずに
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // z-index: z(back);
+        content: "";
+        background: #fff;
+        transform-origin: left top;
+        transform: scale(1, 0);
+        transition: transform 2s;
+    }
+    &:hover::before,
+    &:focus::before {
+        transform-origin: left bottom;
+        transform: scale(1, 1);
+    }
+    &:hover,
+    &:focus {
+        color: #e25c00;
+    }
+}
+//============ ホバー：矢印が動き続ける ===============*/
+
+@mixin hover-slideMV {
+    // &::after {
+    //     position: absolute;
+    //     top: 50%;
+    //     right: 0.8em;
+    //     content: '';
+    //     margin-top: -0.4em;
+    //     border: 1em solid transparent;
+    //     border-top-width: 0.4em;
+    //     border-bottom-width: 0.4em;
+    //     border-left-color: #fff;
+    //     opacity: 0;
+    // }
+    &:hover::after,
+    &:focus::after {
+        animation: arrow 1.2s infinite;
+    }
+    @keyframes arrow {
+        0% {
+            right: 2.5em;
+            opacity: 0;
+        }
+
+        50% {
+            right: 1.4em;
+            opacity: 1;
+        }
+        100% {
+            right: 0em;
+            opacity: 0;
+        }
+    }
+}
+//============ ホバー：左からラインが出て左へ戻る ===============*/
+
+@mixin hover-line {
+    &::after {
+        position: absolute; //aタグにpos:relativeを忘れずに
+        bottom: 15px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        content: "";
+        transition: transform 0.3s;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        background: rgb(90, 60, 60);
+    }
+    &:hover::after,
+    &:focus::after {
+        transform: scale(1, 1);
+    }
+}
+//============ ホバー：きらり ===============*/
+
+@mixin hover-shine {
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 100%
+        );
+        transform: skewX(-25deg);
+    }
+    &:hover::before,
+    &:focus::before {
+        animation: shine 0.5s;
+    }
+    @keyframes shine {
+        100% {
+            left: 125%;
+        }
+    }
+}
+//============ ホバー：外枠のボーダーが動くアニメ ===============*/
+
+@mixin hover-anime01($bd: 2px) {
+    &::before,
+    &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        transition: all 0.4s;
+    }
+    &::before {
+        top: 0;
+        left: 0;
+        border-top: $bd solid red;
+        border-left: $bd solid red;
+    }
+    &::after {
+        right: 0;
+        bottom: 0;
+        border-right: $bd solid red;
+        border-bottom: $bd solid red;
+    }
+    &:hover {
+        background-color: orange;
+        color: #000;
+        transition: all 0.4s;
+    }
+    &:hover::before,
+    &:hover::after {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        transition: all 0.4s;
+    }
+}
+//============ ホバー：左上と右下から薄い膜が交差する ===============*/
+
+@mixin hover-op {
+    &::before,
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: scale3d(0, 0, 1);
+        transition: transform 0.3s ease-out 0s;
+        background: rgba(28, 60, 150, 0.486);
+        content: "";
+        pointer-events: none;
+    }
+    &::before {
+        transform-origin: left top;
+    }
+    &::after {
+        transform-origin: right bottom;
+    }
+    &:hover,
+    &:focus {
+        &::before,
+        &::after {
+            transform: scale3d(1, 1, 1);
+        }
+    }
+}
+
+//============ 最低限おぼえておきたい動き「ふわっ」 ===============*/
+
+@mixin fadeIn {
+    animation-name: fadeInAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    @keyframes fadeInAnime {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+@mixin fadeUp {
+    animation-name: fadeUpAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    @keyframes fadeUpAnime {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+@mixin fadeDown {
+    animation-name: fadeDownAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    @keyframes fadeDownAnime {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+@mixin fadeLeft {
+    animation-name: fadeLeftAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    @keyframes fadeLeftAnime {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+@mixin fadeRight {
+    animation-name: fadeRightAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    @keyframes fadeRightAnime {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+@mixin zoomIn {
+    animation-name: zoomInAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    @keyframes zoomInAnime {
+        from {
+            transform: scale(0.6);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+}
+//============ float解除のclear-fix ===============*/
+// 親要素に対して実装すること
+@mixin cf {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+//============ ページ内リンクで固定ヘッダーをかわすコード ===============*/
+@mixin pageLink {
+    &::before {
+        content: "";
+        height: 100px;
+        margin-top: 100px;
+        display: block;
+        visibility: hidden;
+    }
+}
+
+//============ card-boxで最後に空白を実装 ===============*/
+@mixin emptyBox-A($w: 33%) {
+    &::after {
+        content: "";
+        display: block;
+        width: $w;
+        @media (max-width: $sp) {
+            display: none;
+        }
+    }
+}
+@mixin emptyBox-B($w: 33%) {
+    &::before {
+        content: "";
+        display: block;
+        width: $w;
+        order: 1;
+        @media (max-width: $sp) {
+            display: none;
+        }
+    }
+}

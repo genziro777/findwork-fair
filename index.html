@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head
+        prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"
+    >
+        <!-- 基本共通設定 -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <link
+            rel="stylesheet"
+            href="./assets/js/plugin/slick/slick.css"
+            media="print"
+            onload="this.media='all'; this.onload=null;"
+        /> -->
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="assets/js/main.js" defer></script>
+        <title>令和4年度 東大阪市・八尾市合同開催！！保育士就職フェア</title>
+        <meta name="description" content="地域で仕事を探している皆様と、人材を求めている園の担当者が直接お話できるイベントです! 皆様がお持ちの疑問や不安などを直接聞けるから安心! 一度に様々な園の担当者やスタッフの声を聞けるチャンスです。" />
+        <!--====== 基本共通設定 =============================================-->
+        <meta property="og:title" content="ページのタイトル" />
+        <!-- そのページのh1タイトルみたいなもの -->
+        <meta property="og:type" content="website" />
+        <!-- TOPページならwebsite,それ以外ならarticle。基本この2つしか使わない -->
+        <meta property="og:url" content="表示したいページのURL（絶対パス）" />
+        <meta property="og:image" content="表示したい画像のURL（絶対パス）" />
+        <!-- PNGにすること -->
+        <!-- 以下省略可能だが、site_name, description, localeは載せたほうがいい -->
+        <meta property="og:description" content="記事の抜粋" />
+        <meta property="og:site_name" content="サイト名" />
+        <meta property="og:locale" content="ja_JP" />
+        <!--====== 基本共通設定 ここまで =============================================-->
+
+        <!--====== Twitter用 =============================================-->
+        <meta name="twitter:card" content="summary_large_image" />
+        <!-- 以下省略可能 -->
+        <meta
+            name="twitter:site"
+            content="Twitterカードのフッターで使用されるウェブサイトの@ユーザー名"
+        />
+        <meta
+            name="twitter:creator"
+            content="コンテンツ作成者/著者の@ユーザー名"
+        />
+
+        <!--====== Facebook用 =============================================-->
+        <!-- AppIDの取得方法：http://blog.sixapart.jp/2012-04/fb-app-id.html -->
+        <!-- 記載しなくても動作するが極力設定しよう -->
+        <!-- 1）App IDを指定すると、いいね！数や閲覧数、どの時間帯がユーザーの目にとまりやすいかなどを分析ができるFacebookインサイトを利用できるようになる -->
+        <!-- 2）サイトやブログの管理者をFacebookに伝えるためのタグです。また、いいねの数やどれくらいの人が見てくれたのか、どの時間帯がユーザーの目にとまりやすいかなどといった、Facebookからサイトへのトラフィック分析ができるFacebookインサイトを利用できるようになります。 -->
+        <meta property="fb:app_id" content="appIDを入力（15文字の半角数字）" />
+        <!-- 省ける -->
+        <!-- OGP ここまで -->
+
+        <link
+            rel="apple-touch-icon"
+            href="apple-touch-icon.png"
+            size="180x180"
+        />
+        <!-- ファビコン jpg非推奨 ルートディレクトリに置く-->
+        <link rel="icon" href="favicon.ico" sizes="any" />
+        <!----- safari抜きならSVGだけでOK SVGはsafariだけ非対応----->
+        <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    </head>
+    <body class="js-fadeout">
+        <header id="header">
+            <h1 class="siteLogo">
+                <a href="">
+                    <img
+                        src="http://placehold.jp/100x50.png"
+                        alt="Company"
+                        class="siteLogo__img"
+                    />
+                </a>
+            </h1>
+
+            <nav class="globalNav">
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a href="#">home</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="cards.html">news</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#">about us</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#">services</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="contact.html">contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <button id="hamburger" class="hamburger">
+                <span class="hamburger__bar barTop"></span>
+                <span class="hamburger__bar barMiddle"></span>
+                <span class="hamburger__bar barBottom"></span>
+            </button>
+
+            <nav class="globalNav--sp">
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a href="#">home</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#">news</a>
+                    </li>
+
+                    <li class="menu__item">
+                        <a href="#">about us</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#">services</a>
+                    </li>
+
+                    <li class="menu__item">
+                        <a href="#">contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- センタリングのヘッダー -->
+        <!-- headerとmainに属さないようにすることでWP化の条件分岐をやりやすくする -->
+        <section class="mainVisual">
+            <div class="mainVisual__inner">
+                <div
+                    class="mainVisual__img--pc"
+                    style="
+                        background-image: url(http://placehold.jp/1400x500.png);
+                    "
+                ></div>
+                <div
+                    class="mainVisual__img--sp"
+                    style="
+                        background-image: url(http://placehold.jp/850x500.png);
+                    "
+                ></div>
+
+                <div class="mainVisual__txtWrap js-animation-fadeUp">
+                    <h2 class="siteTtl">ダミータイトル</h2>
+                    <!-- pageTtl -->
+                    <p class="siteTtl__caption">ダミーテキスト</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- センタリングのヘッダー こｋまで-->
+        <!-- <?php get_header(); ?> -->
+
+        <main id="main">
+            <!-- media -->
+            <p class="comment">flexで実装</p>
+
+            <div class="media">
+                <figure class="media__img">
+                    <img alt="" src="assets/images/21.jpg" />
+                </figure>
+                <div class="media__body">
+                    <h3 class="media__ttl">
+                        ユーザーを考えた設計で満足な体験を
+                    </h3>
+                    <p class="media__txt">
+                        提供するサービスやペルソナによって、webサイトの設計は異なります。サービスやペルソナに合わせた設計を行うことにより、訪問者にストレスのないよりよい体験を生み出し、満足を高めることとなります。<br />
+                        わたしたちはお客さまのサイトに合ったユーザビリティを考えるため、分析やヒアリングをきめ細かく実施、満足を体験できるクリエイティブとテクノロジーを設計・構築し、今までにない期待を超えたユーザー体験を提供いたします。
+                    </p>
+                </div>
+            </div>
+            <div class="media media__reverse">
+                <figure class="media__img">
+                    <img alt="" src="assets/images/21.jpg" />
+                </figure>
+                <div class="media__body">
+                    <h3 class="media__ttl">
+                        ユーザーを考えた設計で満足な体験を
+                    </h3>
+                    <p class="media__txt">
+                        提供するサービスやペルソナによって、webサイトの設計は異なります。サービスやペルソナに合わせた設計を行うことにより、訪問者にストレスのないよりよい体験を生み出し、満足を高めることとなります。<br />
+                        わたしたちはお客さまのサイトに合ったユーザビリティを考えるため、分析やヒアリングをきめ細かく実施、満足を体験できるクリエイティブとテクノロジーを設計・構築し、今までにない期待を超えたユーザー体験を提供いたします。
+                    </p>
+                </div>
+            </div>
+            <p class="comment">gridで実装</p>
+
+            <div class="media-grid">
+                <figure class="media-grid__img">
+                    <img alt="" src="assets/images/21.jpg" />
+                </figure>
+                <div class="media-grid__body">
+                    <h3 class="media-grid__ttl">
+                        ユーザーを考えた設計で満足な体験を
+                    </h3>
+                    <p class="media-grid__txt">
+                        提供するサービスやペルソナによって、webサイトの設計は異なります。サービスやペルソナに合わせた設計を行うことにより、訪問者にストレスのないよりよい体験を生み出し、満足を高めることとなります。<br />
+                        わたしたちはお客さまのサイトに合ったユーザビリティを考えるため、分析やヒアリングをきめ細かく実施、満足を体験できるクリエイティブとテクノロジーを設計・構築し、今までにない期待を超えたユーザー体験を提供いたします。
+                    </p>
+                </div>
+            </div>
+            <div class="media-grid media-grid__reverse">
+                <figure class="media-grid__img">
+                    <img alt="" src="assets/images/21.jpg" />
+                </figure>
+                <div class="media-grid__body">
+                    <h3 class="media-grid__ttl">
+                        ユーザーを考えた設計で満足な体験を
+                    </h3>
+                    <p class="media-grid__txt">
+                        提供するサービスやペルソナによって、webサイトの設計は異なります。サービスやペルソナに合わせた設計を行うことにより、訪問者にストレスのないよりよい体験を生み出し、満足を高めることとなります。<br />
+                        わたしたちはお客さまのサイトに合ったユーザビリティを考えるため、分析やヒアリングをきめ細かく実施、満足を体験できるクリエイティブとテクノロジーを設計・構築し、今までにない期待を超えたユーザー体験を提供いたします。
+                    </p>
+                </div>
+            </div>
+
+            <!-- gridパターン① -->
+            <p class="comment">cardサイズ固定でカラム落ち対応</p>
+
+            <section class="cards ly-w">
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+            </section>
+
+            <!-- gridパターン② -->
+            <p class="comment">cardサイズはレスポンシブに対して自動調整</p>
+
+            <section class="cards__auto-fit__minmax ly-w">
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+            </section>
+
+            <!-- gridパターン③ -->
+            <p class="comment">
+                親要素に空ができた場合、空のグリッドが作られる<br />（頻度少なめ？）
+            </p>
+
+            <section class="cards__auto-fill ly-w">
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+                <a class="cards__item card" href="">
+                    <figure class="card__figure">
+                        <img
+                            class="card__img"
+                            src="https://haniwaman.com/parts/wp-content/uploads/2018/02/cat.jpg"
+                        />
+                    </figure>
+                    <div class="card__body">
+                        <time class="card__date" datetime="2020-11-30"
+                            >2020.11.30</time
+                        >
+                        <h2 class="card__ttl">タイトル</h2>
+                        <p class="card__excerpt">
+                            抜粋が入ります。抜粋が入ります。抜粋が入ります。抜粋が入ります。
+                        </p>
+                    </div>
+                </a>
+            </section>
+
+            <!-- 画像とテキスト -->
+
+            <section class="imageBanner">
+                <div
+                    class="imageBanner__img"
+                    style="
+                        background-image: url(http://placehold.jp/1400x500.png);
+                    "
+                ></div>
+                <p class="imageBanner__txt">ダミーテキスト</p>
+            </section>
+
+            <!-- post -->
+
+            <ul class="posts">
+                <li class="posts__item">
+                    <a href="" class="posts__link">
+                        <div class="posts__header">
+                            <time class="posts__date" datetime="2019-03-29"
+                                >2019/03/29</time
+                            >
+                            <ul class="posts__labels">
+                                <li class="posts__label">
+                                    <span class="label"
+                                        >海外向けマーケティング</span
+                                    >
+                                </li>
+                                <li class="posts__label">
+                                    <span class="label"
+                                        >海外向けマーケティング</span
+                                    >
+                                </li>
+                                <li class="posts__label">
+                                    <span class="label"
+                                        >海外向けマーケティング</span
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="posts__ttl" href="#">
+                            【多言語サイトを構築する】
+                            ①対象言語・地域とURL方式の選定
+                        </p>
+                    </a>
+                </li>
+                <li class="posts__item">
+                    <a href="" class="posts__link">
+                        <div class="posts__header">
+                            <time class="posts__date" datetime="2019-03-29"
+                                >2019/03/29</time
+                            >
+                            <ul class="posts__labels">
+                                <li class="posts__label">
+                                    <span class="label"
+                                        >海外向けマーケティング</span
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="posts__ttl" href="#">
+                            【多言語サイトを構築する】
+                            ①対象言語・地域とURL方式の選定
+                        </p>
+                    </a>
+                </li>
+            </ul>
+
+            <div>
+                <!-- 1、ボタン -->
+                <a class="btn" href="#">標準ボタン</a>
+                <a class="btn--anime01" href="#">aminボタン</a>
+
+                <!-- 2、矢印付きボタン -->
+                <a class="btn--arrow" href="#">矢印ボタン</a>
+                <a class="btn--arrowMove" href="#">動く矢印</a>
+                <a class="btn--bubbleEffect" href="#">ボタン</a>
+
+                <div class="button_container">
+                    <!-- これ不要 -->
+
+                    <!-- 5、bubble Effectボタン -->
+
+                    <div class="btn-bubbleEffect">
+                        <span class="btn-bubbleEffect__circle"> </span>
+                        <a href="#" class="btn-bubbleEffect__inner">
+                            <span class="btn-bubbleEffect__txt">
+                                bubble Effectボタン
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- 5、bubble Effectボタン ここまで-->
+                </div>
+            </div>
+
+            <!-- modal -->
+
+            <div class="content">
+                <a class="js-modal-open" href="" data-target="modal01"
+                    >クリックでモーダル1を表示</a
+                ><br />
+                <a class="js-modal-open" href="" data-target="modal02"
+                    >クリックでモーダル2を表示</a
+                ><br />
+                <br />
+                <div class="box">box1</div>
+                <div class="box">box2</div>
+                <div class="box">box3</div>
+                <div class="box">box4</div>
+                <div class="box">box5</div>
+            </div>
+            <div id="modal01" class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+                    <p>
+                        1つ目モーダルウィンドウです。ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。
+                    </p>
+                    <a class="js-modal-close" href="">閉じる</a>
+                </div>
+            </div>
+            <div id="modal02" class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+                    <p>
+                        2つ目モーダルウィンドウです。ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。
+                    </p>
+                    <a class="js-modal-close" href="">閉じる</a>
+                </div>
+            </div>
+            <!--modal-->
+        </main>
+
+        <!-- <?php get_footer(); ?> -->
+
+        <footer id="footer">
+            <nav class="footerNav">
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a href="#">home</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="">news</a>
+                    </li>
+
+                    <li class="menu__item">
+                        <a href="#">about us</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#">services</a>
+                    </li>
+
+                    <li class="menu__item">
+                        <a href="#">contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- コピーライト -->
+            <p class="copyright">
+                <small class="copyright__txt"
+                    >© 2019 PACIFIC MALL DEVELOPMENT CO.,LTD.</small
+                >
+            </p>
+            <!-- <span class="page-top"><a id="page-top" href="#header">TOP</a></span> -->
+            <p id="page-top">
+                <a id="page-top__inner" href="#"><span>Page Top</span></a>
+            </p>
+        </footer>
+    </body>
+</html>

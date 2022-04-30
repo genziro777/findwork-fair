@@ -1,0 +1,104 @@
+@use "sass:math";
+@use "variables" as *;
+
+// font-size 設定 ///////////////////////////////////////////////////
+// 使い方 font-family: ff(en);
+
+$font-family: (
+    // best-sansは池田氏推奨のもの
+    baseFont:
+        (
+            "Helvetica Neue",
+            Arial,
+            "Hiragino Kaku Gothic ProN",
+            "Hiragino Sans",
+            "BIZ UDPGothic",
+            Meiryo,
+            sans-serif
+        ),
+    serif: (
+        YuMincho,
+        "Hiragino Mincho ProN W3",
+        "Hiragino Mincho ProN",
+        "HG明朝E",
+        "ＭＳ Ｐ明朝",
+        "ＭＳ 明朝",
+        serif
+    ),
+    // Notoフォントを使う場合は下記を有効にせよ
+    // notoSans: ("NotoSans", sans-serif),
+    // notoSerif: ("NotoSerif", serif),
+    //英字フォントについては、上書きの可能性のある（かつ変更の可能性のある）英字フォントは変数として持っておき一括で変更できるようにしておくと便利。
+    en: sans-serif
+);
+
+@function ff($ff) {
+    @return #{map-get($font-family, $ff)};
+}
+
+// font-size 設定 ///////////////////////////////////////////////////
+// 使い方の例 font-size: fz(h-lv1);
+$font-size: (
+    // pc版
+    h-lv1: math.div(32, 16) + rem,
+    h-lv2: math.div(24, 16) + rem,
+    h-lv3: math.div(20, 16) + rem,
+    h-lv4: math.div(16, 16) + rem,
+    text-m: math.div(16, 16) + rem,
+    text-s: math.div(12, 16) + rem,
+    // sp版
+    h-sp-lv1: math.div(32, 850) * 100vw,
+    h-sp-lv2: math.div(24, 850) * 100vw,
+    h-sp-lv3: math.div(20, 850) * 100vw,
+    h-sp-lv4: math.div(16, 850) * 100vw,
+    text-sp-m: math.div(16, 850) * 100vw,
+    text-sp-s: math.div(12, 850) * 100vw
+);
+
+@function fz($fz) {
+    @return #{map-get($font-size, $fz)};
+}
+
+// pxをvw変換 /////////////////////////////////////////////////////////
+// まず基本のブレイクポイントを設定（$base: 850）←この部分。このブレイクポイントでよければ margin: vw(40); でOK
+// 使い方 margin: vw(40,1024);など ← これは（$base: 850）以外で使う場合の書き方、第二引数に指定したい横幅を記述
+
+@function vw($px, $base: 640) {// baseにはデザインカンプ（SP版）の横幅を入れる。ブレイクポイントじゃないよ！
+    $value: $px;
+
+    $value: math.div($px, $base) * 100vw;
+
+    @return $value;
+}
+
+
+// color 設定 ////////////////////////////////////////////////////////
+// 使い方 color: c(main);
+$colors: (
+    main: rgb(86, 231, 19),
+    sub: rgb(13, 98, 224),
+    accent: red,
+    text: rgb(0, 0, 0),
+    active: pink,
+);
+
+@function c($color) {
+    @return #{map-get($colors, $color)};
+}
+
+// z-index管理 ///////////////////////////////////////////////////////
+// 使い方 z-index: z(one); emmet=zz
+
+$z-index: (
+    back: -1,
+    one: 10,
+    header: 20,
+    nav: 30,
+    pulldown: 0,
+    child: 0,
+    loading: 900,
+    modal: 1000,
+);
+@function z($zz) {
+    @return #{map-get($z-index, $zz)};
+}

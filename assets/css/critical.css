@@ -1,0 +1,417 @@
+@charset "UTF-8";
+
+/* reset.cssここから */
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+
+body {
+    text-rendering: optimizeSpeed;
+    margin: 0;
+    line-height: 1.5;
+}
+
+p,
+iframe,
+figure {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+hr {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    overflow: visible;
+    border: 0;
+}
+
+a {
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+img,
+embed,
+object,
+iframe {
+    vertical-align: bottom;
+}
+
+.contents-layout {
+    display: flex;
+    row-gap: 100px;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.ly-w {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+#hamburger,
+.hamburger__bar {
+    box-sizing: border-box;
+    display: inline-block;
+    display: none;
+    transition: all 0.2s;
+}
+
+#hamburger {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    z-index: 30;
+    position: absolute;
+    right: 5vw;
+    width: 12.5vw;
+    height: 12.5vw;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.hamburger__bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0.46875vw;
+    border-radius: 4px;
+    background-color: red;
+}
+
+.barTop {
+    top: 25%;
+}
+
+.barMiddle {
+    top: 45%;
+}
+
+.barBottom {
+    top: 65%;
+}
+
+#hamburger:after {
+    display: block;
+    position: absolute;
+    bottom: -1vw;
+    left: 0;
+    width: 100%;
+    content: "MENU";
+    color: red;
+    font-size: 3vw;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+#hamburger.active:after {
+    bottom: -1vw;
+    content: "CLOSE";
+}
+
+#hamburger.active .barTop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#hamburger.active .barMiddle {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+#hamburger.active .barBottom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+#header {
+    display: flex;
+    z-index: 20;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+}
+
+.siteLogo__img {
+    width: 100%;
+    height: 100%;
+}
+.globalNav .menu {
+    display: flex;
+    column-gap: 32px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.globalNav .menu__item {
+    font-size: 16px;
+    font-size: 1rem;
+}
+.globalNav .menu__item a {
+    display: inline-block;
+    position: relative;
+}
+.globalNav .menu__item a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    background: #333;
+    content: "";
+    transition: transform 0.3s;
+}
+.globalNav .menu__item a:hover:after {
+    transform: scale(1, 1);
+}
+.globalNav .menu__item:last-child {
+    margin-right: 0;
+}
+
+.globalNav--sp {
+    display: grid;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    right: -120%;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #56e713;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    transition: 0.2s;
+}
+.globalNav--sp .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 7vw;
+    line-height: 20vw;
+    letter-spacing: 1.5vw;
+}
+.globalNav--sp .menu__item a {
+    color: #ebebeb;
+}
+
+.js-slideIn {
+    right: 0;
+}
+
+.loading-simple-bg {
+    background-color: #7b0199;
+}
+
+#loading-simple {
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.loading-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    line-height: 100px;
+    text-align: center;
+}
+.loading-text span {
+    display: inline-block;
+    margin: 0 5px;
+    color: #fff;
+}
+.loading-text span:nth-child(1) {
+    animation: blur-text 1.5s 0s infinite linear alternate;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+    filter: blur(0px);
+}
+.loading-text span:nth-child(2) {
+    animation: blur-text 1.5s 0.2s infinite linear alternate;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+    filter: blur(0px);
+}
+.loading-text span:nth-child(3) {
+    animation: blur-text 1.5s 0.4s infinite linear alternate;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+    filter: blur(0px);
+}
+.loading-text span:nth-child(4) {
+    animation: blur-text 1.5s 0.6s infinite linear alternate;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+    filter: blur(0px);
+}
+.loading-text span:nth-child(5) {
+    animation: blur-text 1.5s 0.8s infinite linear alternate;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+    filter: blur(0px);
+}
+.loading-text span:nth-child(6) {
+    animation: blur-text 1.5s 1s infinite linear alternate;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+    filter: blur(0px);
+}
+.loading-text span:nth-child(7) {
+    animation: blur-text 1.5s 1.2s infinite linear alternate;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+    filter: blur(0px);
+}
+
+@keyframes blur-text {
+    0% {
+        filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+        filter: blur(0px);
+    }
+    100% {
+        filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="4" /></filter></svg>#filter');
+        filter: blur(4px);
+    }
+}
+.mainVisual {
+    grid-area: main;
+    height: 500px;
+}
+
+.mainVisual__inner {
+    display: grid;
+    position: relative;
+    place-items: center;
+    max-width: 100%;
+    height: 100%;
+}
+.mainVisual__inner:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    content: "";
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+}
+
+.mainVisual__img--pc {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mainVisual__img--sp {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mainVisual__txtWrap {
+    position: absolute;
+}
+
+body:after {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    content: "";
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+body.js-fadeout:after {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+@media (max-width: 850px) {
+    .ly-w {
+        padding-right: 3.75vw;
+        padding-left: 3.75vw;
+    }
+    #hamburger,
+    .hamburger__bar {
+        display: block;
+    }
+    #header {
+        position: fixed;
+        height: 12.5vw;
+    }
+    .siteLogo {
+        width: 15.625vw;
+    }
+    .globalNav {
+        display: none;
+    }
+    .mainVisual {
+        height: 100vh;
+    }
+    .mainVisual__img--pc {
+        display: none;
+    }
+    .mainVisual__img--sp {
+        display: block;
+    }
+}
+/*# sourceMappingURL=critical.css.map */

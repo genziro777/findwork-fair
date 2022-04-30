@@ -1,0 +1,22 @@
+@use "setting" as *;
+
+body {
+    // min-height: 100vh;
+    font-family: ff(best-sans);
+}
+.contents-layout {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+    padding-bottom: 100px;
+}
+.ly-w {
+    max-width: 1120px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 0 auto;
+    @media (max-width: $sp) {
+        padding-left: vw(24);
+        padding-right: vw(24);
+    }
+}

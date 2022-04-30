@@ -1,0 +1,33 @@
+@use "setting" as *;
+
+// html {
+//     scroll-behavior: smooth;
+// }
+//案件では削除
+.comment {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    @include bd-b;
+}
+#main {
+    background-color: rgb(245, 164, 231);
+}
+// p {
+//     font-feature-settings: 'palt';
+// }
+
+// =============== WPでの自動pタグを除去 =============== */
+p:empty {
+    display: none;
+}
+
+.br {
+    display: none;
+    @media (max-width: $sp) {
+        display: block;
+    }
+}
