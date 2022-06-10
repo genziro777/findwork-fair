@@ -5,31 +5,7 @@
 // 使い方 font-family: ff(en);
 
 $font-family: (
-    // best-sansは池田氏推奨のもの
-    baseFont:
-        (
-            "Helvetica Neue",
-            Arial,
-            "Hiragino Kaku Gothic ProN",
-            "Hiragino Sans",
-            "BIZ UDPGothic",
-            Meiryo,
-            sans-serif
-        ),
-    serif: (
-        YuMincho,
-        "Hiragino Mincho ProN W3",
-        "Hiragino Mincho ProN",
-        "HG明朝E",
-        "ＭＳ Ｐ明朝",
-        "ＭＳ 明朝",
-        serif
-    ),
-    // Notoフォントを使う場合は下記を有効にせよ
-    // notoSans: ("NotoSans", sans-serif),
-    // notoSerif: ("NotoSerif", serif),
-    //英字フォントについては、上書きの可能性のある（かつ変更の可能性のある）英字フォントは変数として持っておき一括で変更できるようにしておくと便利。
-    en: sans-serif
+    mPlus: ("M PLUS Rounded 1c", sans-serif),
 );
 
 @function ff($ff) {

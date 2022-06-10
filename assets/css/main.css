@@ -1,6 +1,24 @@
 @charset "UTF-8";
 
 
+/* reset.cssここから */
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  line-height: 1.5;
+}
+
 table,
 blockquote,
 address,
@@ -178,41 +196,21 @@ th {
 }
 
 /* reset.cssここまで */
-.comment {
-  position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 auto;
-  font-weight: bold;
-  font-size: 50px;
-  text-align: center;
-}
-.comment:after {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0.1em;
-  background-color: #000;
-  content: "";
-}
-
-#main {
-  background-color: #f5a4e7;
-}
-
-p:empty {
-  display: none;
-}
-
 .br {
-  display: none;
+  display: block;
 }
 
-@media (max-width: 850px){
+li {
+  list-style-type: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@media not all and (max-width: 850px), print{
   .br{
-    display: block;
+    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */

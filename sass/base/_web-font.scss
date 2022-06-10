@@ -1,0 +1,18 @@
+@use "setting" as *;
+
+@font-face {
+    font-family: "M PLUS Rounded 1c";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./../../assets/fonts/MPLUS-1c-subset400.woff")
+        format("woff");
+    font-display: swap; //swapが良い
+}
+@font-face {
+    font-family: "M PLUS Rounded 1c"; //weight違いも同じ名前で書いてOK
+    font-style: normal;
+    font-weight: bold;
+    src: url("./../../assets/fonts/MPLUS-1c-subset700.woff")
+        format("woff");
+    font-display: swap;
+}

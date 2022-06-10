@@ -1,6 +1,28 @@
 @use "setting" as *;
 
-//! destyle.css v2.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+/* reset.cssここから */
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+// Document */
+// ============================================ */
+
+html {
+    -webkit-text-size-adjust: 100%; // 2 */
+    -webkit-tap-highlight-color: transparent; // 3*/
+}
+
+// Sections */
+// ============================================ */
+
+body {
+    margin: 0;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
 
 table,
 blockquote,
@@ -23,17 +45,14 @@ address {
 // Text-level semantics */
 // ============================================ */
 
-
 abbr[title] {
     text-decoration: underline; // 2 */
     text-decoration: underline dotted; // 2 */
 }
 
-
 small {
     font-size: 80%;
 }
-
 
 // Forms */
 // ============================================ */
