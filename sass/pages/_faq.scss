@@ -1,0 +1,229 @@
+@use "setting" as *;
+
+.faq {
+    background-color: c(i);
+    margin-top: 1vw;
+    position: relative;
+    padding: vw(50) vw(45) 14vw;
+    z-index: 21;
+    top: vw(-110);
+    @media not all and (max-width: $breakpoint) {
+        max-width: 940px;
+        padding: 44px 20px 50px;
+        margin: -90px auto 0;
+        top: 0;
+    }
+}
+.faq__list {
+    @media not all and (max-width: $breakpoint), print {
+        padding: 0 20px;
+    }
+}
+.faq__ttl {
+    background-color: c(i);
+    width: 72vw;
+    border-radius: 3vw;
+    padding: 3vw 0;
+    margin-top: 1.67vw;
+    font-weight: bold;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(28);
+        width: 470px;
+        padding: 21px 0;
+        border-radius: 20px;
+        margin-top: 5px;
+    }
+}
+
+.faq__desc {
+    text-align: center;
+    font-size: vw(28);
+    line-height: 1.4;
+    margin: -1vw calc(50% - 50vw) 5.3vw;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(21);
+        margin: -1vw calc(50% - 50vw) 30px;
+    }
+}
+.faq__q,
+.faq__a {
+    display: flex;
+    align-items: center;
+    border-radius: vw(25);
+    padding: 0 vw(35);
+    position: relative;
+    @media not all and (max-width: $breakpoint) {
+        width: vw(780,940);
+        border-radius: 20px;
+        padding: 0 vw(25,940);
+    }
+    @media not all and (max-width: $md), print {
+        width: 780px;
+        padding: 0 25px;
+    }
+}
+.faq__q {
+    color: #fff;
+    background-color: c(tya);
+    margin-bottom: vw(13);
+    @media not all and (max-width: $breakpoint), print {
+        margin-bottom: 8px;
+    }
+    &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 vw(40) vw(30) vw(40);
+        border-color: transparent transparent c(tya) transparent;
+        position: absolute;
+        bottom: 11%;
+        left: -5%;
+        @media not all and (max-width: $breakpoint), print {
+            border-width: 0 30px 20px 30px;
+            left: -3%;
+        }
+    }
+}
+.faq__q--textL {
+    font-size: vw(60);
+    font-weight: bold;
+    margin-right: vw(20);
+    font-family: "Zen Maru Gothic";
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(42.5);
+        margin-right: 20px;
+    }
+}
+.faq__q--textS {
+    font-size: vw(29);
+    font-weight: bold;
+    @include lh(35, 45);
+    padding: 3vw 0;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(21);
+        padding: 15px 0;
+    }
+}
+.faq__a {
+    background-color: #fff;
+    margin-bottom: vw(35);
+    @media not all and (max-width: $breakpoint), print {
+        margin-left: auto;
+        margin-bottom: 25px;
+    }
+    &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 vw(40) vw(30) vw(40);
+        border-color: transparent transparent #fff transparent;
+        position: absolute;
+        bottom: 11%;
+        right: -5%;
+        @media not all and (max-width: $breakpoint), print {
+            border-width: 0 40px 30px 40px;
+            right: -3%;
+        }
+    }
+}
+.faq__a--textL {
+    color: c(tya);
+    font-size: vw(60);
+    font-weight: bold;
+    margin-right: vw(20);
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(42.5);
+        margin-right: 20px;
+    }
+}
+.faq__a--textS {
+    font-size: vw(25);
+    @include ls(10);
+    @include lh(25, 40);
+    padding: vw(25) 0;
+    text-align: justify;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(18);
+        padding: 15px 0;
+    }
+}
+.pieChart__heading {
+    font-size: vw(43);
+    @include ls(24);
+    line-height: 1.2;
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(28,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(28);
+    }
+}
+.pieChart__img {
+    width: 100%;
+}
+.enquete {
+    margin-top: 9vw;
+    @media not all and (max-width: $breakpoint) {
+        display: grid;
+        grid-template-columns: vw(375,940) 1fr;
+        justify-content: space-between;
+        column-gap: 30px;
+        margin-top: 52px;
+    }
+    @media not all and (max-width: $md), print {
+        display: grid;
+        grid-template-columns: 375px 1fr;
+        justify-content: space-between;
+        column-gap: 30px;
+        margin-top: 52px;
+    }
+}
+.pieChart {
+    margin-bottom: 7vw;
+    @media not all and (max-width: $breakpoint), print {
+        margin-bottom: 70px;
+    }
+}
+.enquete__item {
+    padding-left: 1em;
+    text-indent: -1em;
+    font-size: vw(28);
+    line-height: 1.4;
+    letter-spacing: -0.1em;
+    margin-bottom: 1vw;
+    @media not all and (max-width: $breakpoint){
+        font-size: vw(18,940);;
+        letter-spacing: 0;
+        line-height: 1.2;
+        margin-bottom: vw(6,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(18);
+        margin-bottom: 6px;
+    }
+    &::before {
+        content: "";
+        width: 3vw;
+        height: 3vw;
+        background-color: c(tya);
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        left: 0.5vw;
+        @media not all and (max-width: $breakpoint), print {
+            width: 16px;
+            height: 16px;
+            left: 5px;
+        }
+    }
+}
+.z20 {
+    z-index: 20;
+}
+.w490 {
+    @media not all and (max-width: $breakpoint), print {
+        width: 490px !important;
+    }
+}

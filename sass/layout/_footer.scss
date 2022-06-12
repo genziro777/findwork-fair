@@ -1,0 +1,80 @@
+@use "setting" as *;
+
+#footer {
+    background-color: c(b1);
+    margin-top: -28vw;
+    position: relative;
+    padding: vw(100) vw(45) 10vw;
+    color: #fff;
+    z-index: 40;
+    @media not all and (max-width: $breakpoint), print {
+        padding: 44px 20px 50px;
+        margin: -90px auto 0;
+    }
+}
+.footer__bottom {
+    text-align: center;
+    @media not all and (max-width: $breakpoint), print {
+        max-width: 940px;
+        padding: 0 20px;
+        margin: 0 auto;
+    }
+}
+.footer__heading {
+    font-size: vw(25);
+    margin-bottom: 3vw;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(21);
+        margin-bottom: 23px;
+    }
+}
+.responsibleDivision {
+    font-size: vw(42.5);
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 3vw;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(32);
+        margin-bottom: 15px;
+    }
+}
+.footer__hr {
+    border-top: 2px dotted #fff;
+    margin: 6vw calc(50% - 50vw) 8vw;
+    @media not all and (max-width: $breakpoint), print {
+        margin: 35px calc(50% - 50vw);
+    }
+}
+address {
+    font-size: vw(25);
+    line-height: 1.25;
+    margin-bottom: 3.5vw;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(18);
+        margin-bottom: 20px;
+    }
+}
+.footer__annotation {
+    font-size: vw(18);
+    margin-bottom: 3vw;
+    letter-spacing: 0.05em;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(14);
+        margin-bottom: 25px;
+    }
+}
+.z30 {
+    z-index: 30;
+    width: 80vw !important;
+    transform: translate(-50%, -145%) !important;
+    @media not all and (max-width: $breakpoint), print {
+        transform: translate(-50%, -41%) !important;
+        width: 600px !important;
+    }
+}
+.copyright__txt {
+    font-size: 2.7vw;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(17.5);
+    }
+}

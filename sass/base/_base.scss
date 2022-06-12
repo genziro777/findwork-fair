@@ -1,9 +1,9 @@
 @use "setting" as *;
 
-// p {
-//     font-feature-settings: 'palt';
-// }
-
+body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    color: c(t2);
+}
 .br {
     display: block;
     @media not all and (max-width: $breakpoint), print {
@@ -13,6 +13,29 @@
 li {
     list-style-type: none; 
 }
-.bold {
-    font-weight: bold;
+
+.bgcY {
+    background-color: c(y);
+
+    @media not all and (max-width: $breakpoint), print{
+        padding-top: 50px;
+    }
+}
+.bgcB {
+    @media not all and (max-width: $breakpoint), print{
+        background-color: c(b2);
+    }
+
+}
+.bgcG {
+    @media not all and (max-width: $breakpoint), print{
+        background-color: c(g2);
+    }
+
+}
+.bgcI {
+        @media not all and (max-width: $breakpoint), print{
+            background-color: c(i);
+        }
+
 }

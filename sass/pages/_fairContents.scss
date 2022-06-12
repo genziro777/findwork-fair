@@ -1,0 +1,327 @@
+@use "setting" as *;
+
+.fairContents {
+    padding: vw(45) vw(45) 18vw;
+    text-align: center;
+    color: c(t1);
+    @media not all and (max-width: $breakpoint), print {
+        max-width: 940px;
+        padding: 0 20px 110px;
+        margin: 0 auto;
+    }
+}
+.fairContents__ttl {
+    color: c(b1);
+    font-size: vw(50);
+    font-weight: bold;
+    line-height: 1.1;
+    margin: 0 calc(50% - 50vw) 2vw;
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(64,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(64);
+        margin: 0 calc(50% - 50vw) 10px;
+    }
+}
+.fairContents__text {
+    font-size: vw(26);
+    line-height: 1.4;
+    margin: 0 calc(50% - 50vw) 2vw;
+    @media not all and (max-width: $breakpoint), print {
+        font-size: vw(21,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(21);
+        line-height: 1.5;
+        margin: 0 calc(50% - 50vw) 10px;
+    }
+}
+.media {
+    margin-bottom: 3vw;
+    @media not all and (max-width: $breakpoint), print {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+    }
+}
+.media__balloon {
+    width: vw(405);
+    margin-bottom: 4.2vw;
+    @media not all and (max-width: $breakpoint) {
+        width: vw(300,940);
+        margin-bottom: 0;
+    }
+    @media not all and (max-width: $md), print {
+        width: 300px;
+    }
+}
+.media__text {
+    font-size: vw(47);
+    @include lh(47.72, 55.67);
+    text-align: left;
+    @media not all and (max-width: $breakpoint){
+        font-size: vw(40,940);
+        width: vw(582,940);
+    }
+    @media not all and (max-width: $md), print {
+        width: 100%;
+        @include rem(42.5);
+        letter-spacing: -0.04em;
+        width: 582px;
+    }
+}
+.emphasis {
+    font-size: 12.5vw;
+    color: c(b1);
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(71,940);
+    }
+    @media not all and (max-width: $md), print {
+        width: 100%;
+        @include rem(71);
+    }
+}
+.media__reverse {
+    @media not all and (max-width: $breakpoint), print {
+        flex-direction: row-reverse;
+    }
+    .media__text {
+        @media not all and (max-width: $breakpoint) {
+            width:vw(550,940);
+        }
+        @media not all and (max-width: $md), print {
+            width: 550px;
+        }
+    }
+    .media__balloon {
+        @media not all and (max-width: $breakpoint) {
+            width: vw(330,940);
+            margin-top: vw(-27,940);
+        }
+        @media not all and (max-width: $md), print {
+            width: 330px;
+            margin-top: -27px;
+        }
+    }
+}
+.media__ttlBar {
+    background-color: c(b1);
+    color: #fff;
+    font-size: vw(33);
+    text-align: center;
+    border-radius: vw(50);
+    @include lh(33.38, 46.74);
+    padding: vw(3) 0;
+    margin-bottom: 3.6vw;
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(28,940);
+        border-radius: 50px;
+        margin-bottom: vw(20,940);
+        padding: 3px 0;
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(28);
+        margin-bottom: 20px;
+    }
+}
+.media__listItem {
+    font-size: vw(32);
+    padding-left: 1em;
+    text-indent: -1em;
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(28,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(28);
+    }
+
+    &::before {
+        content: "";
+        width: vw(20);
+        height: vw(20);
+        background-color: c(b1);
+        border-radius: 50%;
+        display: inline-block;
+        @media not all and (max-width: $breakpoint) {
+            width: vw(18,940);
+            height: vw(18,940);
+        }
+        @media not all and (max-width: $md), print {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+.media__list {
+    line-height: 1.4;
+}
+.card__item {
+    @media not all and (max-width: $breakpoint) {
+        width: vw(425,940);
+    }
+    @media not all and (max-width: $md), print {
+        width: 425px;
+    }
+}
+.cards__ttl {
+    font-size: vw(50);
+    color: c(b1);
+    font-weight: bold;
+    line-height: 1.1;
+    margin-top: 5vw;
+    margin-bottom: 4.4vw;
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(64,940);
+        margin-top:vw(27,940);
+        margin-bottom: vw(30,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(64);
+        margin-top: 27px;
+        margin-bottom: 30px;
+    }
+}
+.card__ttl {
+    font-size: vw(50);
+    color: c(b1);
+    font-weight: bold;
+    line-height: 1.1;
+    margin-top: 5vw;
+    margin-bottom: 4.4vw;
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(35,940);
+        margin-top: vw(27,940);
+        margin-bottom: vw(12,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(35);
+        margin-top: 27px;
+        margin-bottom: 12px;
+    }
+}
+.card__img {
+    width: 100%;
+    border-radius: vw(30);
+    height: vw(423);
+    @media not all and (max-width: $breakpoint) {
+        height: vw(278,940);
+        border-radius: 20px;
+    }
+    @media not all and (max-width: $md), print {
+        height: 278px;
+    }
+}
+.card__textWrap {
+    margin-top: -1vw;
+    margin-bottom: 3vw;
+    @media not all and (max-width: $breakpoint) {
+        margin-top: 0;
+        margin-bottom: vw(10,940);
+    }
+    @media not all and (max-width: $md), print {
+        margin-bottom: 10px;
+    }
+}
+.card__text {
+    font-size: vw(32);
+    text-align: left;
+    padding-left: 1em;
+    text-indent: -1em;
+    letter-spacing: -0.03em;
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(21,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(21);
+    }
+    &::before {
+        content: "";
+        width: 3.6vw;
+        height: 3.6vw;
+        background-color: c(b1);
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        left: 0.8vw;
+        @media not all and (max-width: $breakpoint) {
+            width: vw(18,940);
+            height: vw(18,940);
+            left: vw(5,940);
+        }
+        @media not all and (max-width: $md), print {
+            width: 18px;
+            height: 18px;
+            left: 5px;
+        }
+    }
+}
+.card__balloon {
+    width: 100%;
+    margin-bottom: 7vw;
+    @media not all and (max-width: $breakpoint) {
+        margin-bottom: vw(50,940);
+    }
+    @media not all and (max-width: $md), print {
+        margin-bottom: 50px;
+    }
+}
+.cards {
+    margin-bottom: -1vw;
+    @media not all and (max-width: $breakpoint), print {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-between;
+        margin-bottom: -8px;
+    }
+}
+.cards__footer__ttl {
+    font-size: vw(50);
+    font-weight: bold;
+    color: c(b1);
+    margin: 0 calc(50% - 50vw) 4vw;
+    line-height: 1.1;
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(64,940);
+        margin: 0 calc(50% - 50vw) vw(13,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(64);
+        margin: 0 calc(50% - 50vw) 13px;
+    }
+}
+.cards__footer__text {
+    font-size: vw(28);
+    @include lh(28.35, 39);
+    @media not all and (max-width: $breakpoint) {
+        font-size: vw(21,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(21);
+    }
+}
+.cards__annotation {
+    font-size: vw(30);
+    line-height: 1.5;
+    text-align: left;
+    padding-left: 1em;
+    text-indent: -1em;
+    margin-bottom: 5vw;
+    @media not all and (max-width: $breakpoint){
+        font-size: vw(20,940);
+        @include lh(20, 32);
+        width: vw(435,940);
+        position: relative;
+        top: vw(-162,940);
+        right: vw(-469,940);
+        margin-bottom: vw(-135,940);
+    }
+    @media not all and (max-width: $md), print {
+        @include rem(20);
+        width: 435px;
+        top: -162px;
+        right: -469px;
+        margin-bottom: -135px;
+    }
+}

@@ -1,0 +1,91 @@
+@use "setting" as *;
+
+.higashiOsakaExhibit {
+    background-color: c(b2);
+    margin-top: vw(-100);
+    padding: vw(50) vw(45) 16.3vw;
+    z-index: 2;
+    position: relative;
+    @media not all and (max-width: $breakpoint), print{
+        max-width: 940px;
+        padding: 35px 20px 100px;
+        margin: -90px auto 0;
+    }
+}
+.section__ttl {
+    width: vw(565);
+    height: vw(115);
+    background-color: #fff;
+    border-radius: 3vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    font-size: vw(36);
+    text-align: center;
+    display: grid;
+    place-items: center;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(28);
+        width: 410px;
+        height: 100px;
+        border-radius: 20px;
+
+    }
+}
+.higashiOsakaExhibit__ttl {
+    background-color: c(b2);
+    width: 72vw;
+    border-radius: 3vw;
+    padding: 3vw 0;
+    margin-top:1.67vw;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    @media not all and (max-width: $breakpoint), print{
+        width: 391px;
+        padding: 21px 0;
+        border-radius: 20px;
+        margin-top: 5px;
+    }
+}
+.grid__list {
+    width: 100%;
+    display: grid;
+    row-gap: vw(30);
+
+    @media not all and (max-width: $breakpoint){
+        grid-template-columns: repeat(3, auto);
+        justify-content: space-between;
+        row-gap: vw(15,940);
+    }
+    @media not all and (max-width: $md), print{
+        row-gap: 15px;
+    }
+}
+.grid__item {
+    width: 100%;
+    @media not all and (max-width: $breakpoint){
+        width: vw(290,940);
+    }
+    @media not all and (max-width: $md), print{
+        width: 290px;
+    }
+
+}
+.grid__img {
+    width: 100%;
+
+}
+.grid__endText {
+    text-align: center;
+    font-size: vw(35);
+    @include ls(50);
+    margin-top: 2.2vw;
+    @media not all and (max-width: $breakpoint){
+        font-size: vw(18,940);
+        margin-top: vw(45,940);
+    }
+    @media not all and (max-width: $md), print{
+        @include rem(18);
+        margin-top: 45px;
+    }
+}

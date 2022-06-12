@@ -1,0 +1,35 @@
+@use "setting" as *;
+
+.yaoExhibit {
+    background-color: c(g2);
+    margin-top: vw(-100);
+    position: relative;
+    padding: 8vw vw(45) 16.7vw;
+    z-index: 11;
+    @media not all and (max-width: $breakpoint), print{
+        max-width: 940px;
+        padding: 35px 20px 100px;
+        margin: -90px auto 0;
+    }
+}
+
+.yaoExhibit__ttl {
+    background-color: c(g2);
+    width: 72vw;
+    border-radius: 3vw;
+    padding: 3vw 0;
+    margin-top: 1.67vw;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(28);
+        width: 391px;
+        padding: 21px 0;
+        border-radius: 20px;
+        margin-top: 5px;
+    }
+}
+
+.z10 {
+    z-index: 10;
+}

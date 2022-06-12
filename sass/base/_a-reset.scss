@@ -1,6 +1,5 @@
 @use "setting" as *;
 
-/* reset.cssここから */
 *,
 ::before,
 ::after {
@@ -24,15 +23,59 @@ body {
     line-height: 1.5;
 }
 
+// Vertical rhythm */
+// ============================================ */
+
+p,
 table,
 blockquote,
 address,
 pre,
+iframe,
 form,
+figure,
 dl,
 dd {
     margin: 0;
 }
+
+// Headings */
+// ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    margin: 0;
+}
+
+// Lists (enumeration) */
+// ============================================ */
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// Grouping content */
+// ============================================ */
+
+hr {
+    height: 0; // 1 */
+    overflow: visible; // 2 */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: visible;
+}
+
 pre {
     font-family: monospace, monospace; // 1 */
     font-size: inherit; // 2 */
@@ -45,13 +88,34 @@ address {
 // Text-level semantics */
 // ============================================ */
 
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
 abbr[title] {
     text-decoration: underline; // 2 */
     text-decoration: underline dotted; // 2 */
 }
 
+b,
+strong {
+    font-weight: bolder;
+}
+
 small {
     font-size: 80%;
+}
+
+// Embedded content */
+// ============================================ */
+
+img,
+embed,
+object,
+iframe {
+    vertical-align: bottom;
 }
 
 // Forms */

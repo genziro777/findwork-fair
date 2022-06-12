@@ -1,0 +1,63 @@
+@use "setting" as *;
+
+.precautions {
+    position: relative;
+    @media not all and (max-width: $breakpoint), print {
+        max-width: 940px;
+        padding: 0 50px;
+        margin: 0 auto;
+    }
+}
+.precautions__ttl {
+    background-color: c(b1);
+    width: 76.7vw;
+    border-radius: vw(20);
+    padding: vw(30) 0;
+    position: absolute;
+    top: -32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: vw(36);
+    line-height: 1.2;
+    text-align: center;
+    @media not all and (max-width: $breakpoint) {
+        @include rem(28);
+        width: 580px;
+        border-radius: 20px;
+        padding: 21px 0;
+        top: -47px;
+
+    }
+    @media not all and (max-width: $md), print {
+        top: -34%;
+    }
+}
+.precautions__text {
+    font-size: vw(25);
+    line-height: 1.4;
+    padding-left: 1em;
+    margin-bottom: 1vw;
+    text-indent: -1em;
+    letter-spacing: -0.03em;
+    @media not all and (max-width: $breakpoint), print {
+        @include rem(18);
+        letter-spacing: 0.04em;
+        margin-bottom: 8px;
+    }
+    &::before {
+        content: "";
+        width: vw(20);
+        height: vw(20);
+        background-color: #fff;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        left: .8%;
+        @media not all and (max-width: $breakpoint), print {
+            width: 16px;
+            height: 16px;
+            left: 4px;
+        }
+    }
+}

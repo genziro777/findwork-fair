@@ -5,7 +5,7 @@
 // 使い方 font-family: ff(en);
 
 $font-family: (
-    mPlus: ("M PLUS Rounded 1c", sans-serif),
+    mp1: ("M PLUS Rounded 1c", sans-serif),
 );
 
 @function ff($ff) {
@@ -23,12 +23,12 @@ $font-size: (
     text-m: math.div(16, 16) + rem,
     text-s: math.div(12, 16) + rem,
     // sp版
-    h-sp-lv1: math.div(32, 850) * 100vw,
-    h-sp-lv2: math.div(24, 850) * 100vw,
-    h-sp-lv3: math.div(20, 850) * 100vw,
-    h-sp-lv4: math.div(16, 850) * 100vw,
-    text-sp-m: math.div(16, 850) * 100vw,
-    text-sp-s: math.div(12, 850) * 100vw
+    h-sp-lv1: math.div(32, 750) * 100vw,
+    h-sp-lv2: math.div(24, 750) * 100vw,
+    h-sp-lv3: math.div(20, 750) * 100vw,
+    h-sp-lv4: math.div(16, 750) * 100vw,
+    text-sp-m: math.div(16, 750) * 100vw,
+    text-sp-s: math.div(12, 750) * 100vw
 );
 
 @function fz($fz) {
@@ -39,7 +39,7 @@ $font-size: (
 // まず基本のブレイクポイントを設定（$base: 850）←この部分。このブレイクポイントでよければ margin: vw(40); でOK
 // 使い方 margin: vw(40,1024);など ← これは（$base: 850）以外で使う場合の書き方、第二引数に指定したい横幅を記述
 
-@function vw($px, $base: 640) {// baseにはデザインカンプ（SP版）の横幅を入れる。ブレイクポイントじゃないよ！
+@function vw($px, $base: 750) {// baseにはデザインカンプ（SP版）の横幅を入れる。ブレイクポイントじゃないよ！
     $value: $px;
 
     $value: math.div($px, $base) * 100vw;
@@ -51,11 +51,16 @@ $font-size: (
 // color 設定 ////////////////////////////////////////////////////////
 // 使い方 color: c(main);
 $colors: (
-    main: rgb(86, 231, 19),
-    sub: rgb(13, 98, 224),
-    accent: red,
-    text: rgb(0, 0, 0),
-    active: pink,
+    t1: #595757,
+    t2: #4C4948,
+    y: #fff462,
+    b1: #00a0e9,
+    b2: #b9e2f8,
+    g1: #6FBA2C,
+    g2: #D9E367,
+    m: #e4007f,
+    i: #ffdcaa,
+    tya: #F3981C,
 );
 
 @function c($color) {
